@@ -2,6 +2,7 @@ package raptarior.springcore.order;
 
 import raptarior.springcore.discount.DiscountPolicy;
 import raptarior.springcore.discount.FixDiscountPolicy;
+import raptarior.springcore.discount.RateDiscountPolicy;
 import raptarior.springcore.member.Member;
 import raptarior.springcore.member.MemberRepository;
 import raptarior.springcore.member.MemoryMemberRepository;
@@ -9,7 +10,8 @@ import raptarior.springcore.member.MemoryMemberRepository;
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+//    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
